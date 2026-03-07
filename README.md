@@ -11,3 +11,4 @@
 *A meme that captures how I currently feel about my university studies is a* [nerdy cat](https://tenor.com/en-NZ/search/studying-cat-gifs)
 
 ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
+![](https://media1.tenor.com/m/cb9L14uH-YAAAAAd/cool-fun.gif) 
