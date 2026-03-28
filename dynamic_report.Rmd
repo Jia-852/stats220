@@ -47,8 +47,11 @@ latest_data <- logged_data %>%
     observation_time = "What time of the day did you make this observation?")
 ```
 Summary Values:
+
 The maximum number of runners/joggers observed was `r max(latest_data$num_running_jogging)`. 
+
 The minimum number of runners/joggers observed was `r min(latest_data$num_running_jogging)`.
+
 
 Bar Chart 1: 
 
