@@ -23,6 +23,20 @@ This data set observes people and their activities during walks to Auckland Univ
 
 ```{r}
 library(tidyverse)
+#Meme created for project 2
+logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk4t9n3EoJ_fMz-707n66U30B1gGBxweRcmUpLQSpgsF5ITTr7rKZLlL1imRWuIQS7oJYIIZcp3YpC/pub?gid=406574375&single=true&output=csv') 
+
+latest_data <- logged_data %>%
+  rename(
+    timestamp = "Timestamp",
+    num_running_jogging = "How many people did you notice running or jogging today?",
+    main_activity = "What is the main type of activity of people you observed?",
+    weather_conditions = "What was the weather like during your walk?",
+    observation_time = "What time of the day did you make this observation?")
+```
+
+```{r}
+library(tidyverse)
 logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk4t9n3EoJ_fMz-707n66U30B1gGBxweRcmUpLQSpgsF5ITTr7rKZLlL1imRWuIQS7oJYIIZcp3YpC/pub?gid=406574375&single=true&output=csv') 
 
 latest_data <- logged_data %>%
