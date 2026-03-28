@@ -1,0 +1,68 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+p {font-style: italic;}
+
+body {background-color: #e6f2ff}
+
+h1, h2, h3 {font-family: 'Indie Flower'}
+```
+
+## Observing Patterns of Runners/Joggers by Weather Conditions and Time
+
+This data set observes people and their activities during walks to Auckland University. The main focus for this analysis is looking at the variations of how the number of runners/joggers varies with weather conditions and time of day. 
+![](project2_meme.gif)
+
+```{r}
+library(tidyverse)
+logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk4t9n3EoJ_fMz-707n66U30B1gGBxweRcmUpLQSpgsF5ITTr7rKZLlL1imRWuIQS7oJYIIZcp3YpC/pub?gid=406574375&single=true&output=csv') 
+
+latest_data <- logged_data %>%
+  rename(
+    timestamp = "Timestamp",
+    num_running_jogging = "How many people did you notice running or jogging today?",
+    main_activity = "What is the main type of activity of people you observed?",
+    weather_conditions = "What was the weather like during your walk?",
+    observation_time = "What time of the day did you make this observation?")
+```
+The maximum number of runners/joggers observed was `r max(latest_data$num_running_jogging)`. The minimum number of runners/joggers observed was `r min(latest_data$num_running_jogging)`.
+
+Bar Chart 1: 
+
+```{r}
+#bar chart 1: Runners/Joggers by Weather Conditions
+weather_split <- latest_data %>%
+  separate_rows(weather_conditions, sep = ", ")
+
+weather_split %>%
+  ggplot() +
+  geom_bar(aes(x = num_running_jogging, fill = weather_conditions)) +
+  labs(title = "Number of Runners/Joggers by Weather Conditions",
+       subtitle = "Comparing number of runners/joggers and weather conditions",
+       x = "Number of Runners/Joggers",
+       y = "Number of Observations",
+       fill = "Weather")
+```
+
+Bar Chart 2
+
+```{r}
+#bar chart 2: Runners/Joggers by Time of Day
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = num_running_jogging, fill = observation_time)) +
+  labs(title = "Number of Runners/Joggers by Time of Day",
+       subtitle = "Comparing number of runners/joggers and time of day",
+       x = "Number of Runners/Joggers",
+       y = "Number of Observations",
+       fill = "Time of Day")
+```
+
+
