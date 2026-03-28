@@ -20,6 +20,45 @@ h1, h2, h3 {font-family: 'Indie Flower'}
 This data set observes people and their activities during walks to Auckland University. The main focus for this analysis is looking at the variations of how the number of runners/joggers varies with weather conditions and time of day. 
 
 ```{r}
+library(magick)
+my_meme <- image_read("https://media.tenor.com/SVhrjuknABQAAAAM/run-chase.gif") %>%
+  image_annotate(text = "RUNNING FROM RAIN!!!",
+                 color = "#ffff00",
+                 size = 20,
+                 font = "Impact",
+                 strokecolor = "#000000",
+                 strokewidth = 1,
+                 weight = 900,
+                 gravity = "North")
+
+
+frame1 <- my_meme %>%
+  image_scale(250) %>%
+  image_extent("500x500")
+
+frame2 <- my_meme %>%
+  image_scale(200) %>%
+  image_extent("500x500")
+
+frame3 <- my_meme %>%
+  image_scale(150) %>%
+  image_extent("500x500")
+
+frame4 <- my_meme %>%
+  image_scale(100) %>%
+  image_extent("500x500")
+
+frames <- c(frame1, frame2, frame3, frame4, frame3, frame2)
+
+project2_meme <- image_animate(frames, fps = 20)
+
+project2_meme
+
+image_write(project2_meme, "project2_meme.gif")
+```
+
+
+```{r}
 library(tidyverse)
 logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk4t9n3EoJ_fMz-707n66U30B1gGBxweRcmUpLQSpgsF5ITTr7rKZLlL1imRWuIQS7oJYIIZcp3YpC/pub?gid=406574375&single=true&output=csv') 
 
@@ -34,6 +73,7 @@ latest_data <- logged_data %>%
 The maximum number of runners/joggers observed was `r max(latest_data$num_running_jogging)`. The minimum number of runners/joggers observed was `r min(latest_data$num_running_jogging)`.
 
 Bar Chart 1: 
+
 ```{r}
 #bar chart 1: Runners/Joggers by Weather Conditions
 weather_split <- latest_data %>%
@@ -50,6 +90,7 @@ weather_split %>%
 ```
 
 Bar Chart 2
+
 ```{r}
 #bar chart 2: Runners/Joggers by Time of Day
 latest_data %>%
@@ -61,5 +102,6 @@ latest_data %>%
        y = "Number of Observations",
        fill = "Time of Day")
 ```
+
 
 
