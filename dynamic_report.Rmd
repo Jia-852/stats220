@@ -18,7 +18,6 @@ h1, h2, h3 {font-family: 'Indie Flower'}
 ## Observing Patterns of Runners/Joggers by Weather Conditions and Time
 
 This data set observes people and their activities during walks to Auckland University. The main focus for this analysis is looking at the variations of how the number of runners/joggers varies with weather conditions and time of day. 
-![](project2_meme.gif)
 
 ```{r}
 library(tidyverse)
