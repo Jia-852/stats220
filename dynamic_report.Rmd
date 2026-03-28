@@ -51,7 +51,7 @@ weather_split %>%
        fill = "Weather")
 ```
 
-Bar Chart 2
+Bar Chart 2:
 
 ```{r}
 #bar chart 2: Runners/Joggers by Time of Day
