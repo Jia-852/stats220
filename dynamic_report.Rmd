@@ -65,5 +65,7 @@ latest_data %>%
        y = "Number of Observations",
        fill = "Time of Day")
 ```
+
+
 ![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGVqMnV5djFnMDZuaWdvdGlzbWdza2Iyd3lpNzhobHdmaG80NGN2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pkgNVaa7CC2E7Gzt3q/giphy.gif)
 
