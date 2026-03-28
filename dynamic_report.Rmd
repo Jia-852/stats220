@@ -55,6 +55,7 @@ project2_meme <- image_animate(frames, fps = 20)
 project2_meme
 
 image_write(project2_meme, "project2_meme.gif")
+
 ```
 
 
