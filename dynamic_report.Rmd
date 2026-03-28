@@ -22,47 +22,6 @@ This data set observes people and their activities during walks to Auckland Univ
 ![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGVqMnV5djFnMDZuaWdvdGlzbWdza2Iyd3lpNzhobHdmaG80NGN2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pkgNVaa7CC2E7Gzt3q/giphy.gif)
 
 ```{r}
-library(magick)
-
-#Meme created for project 2
-my_meme <- image_read("https://media.tenor.com/SVhrjuknABQAAAAM/run-chase.gif") %>%
-  image_annotate(text = "RUNNING FROM RAIN!!!",
-                 color = "#ffff00",
-                 size = 20,
-                 font = "Impact",
-                 strokecolor = "#000000",
-                 strokewidth = 1,
-                 weight = 900,
-                 gravity = "North")
-
-
-frame1 <- my_meme %>%
-  image_scale(250) %>%r
-  image_extent("500x500")
-
-frame2 <- my_meme %>%
-  image_scale(200) %>%
-  image_extent("500x500")
-
-frame3 <- my_meme %>%
-  image_scale(150) %>%
-  image_extent("500x500")
-
-frame4 <- my_meme %>%
-  image_scale(100) %>%
-  image_extent("500x500")
-
-frames <- c(frame1, frame2, frame3, frame4, frame3, frame2)
-
-project2_meme <- image_animate(frames, fps = 20)
-
-project2_meme
-
-image_write(project2_meme, "project2_meme.gif")
-```
-
-
-```{r}
 library(tidyverse)
 logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk4t9n3EoJ_fMz-707n66U30B1gGBxweRcmUpLQSpgsF5ITTr7rKZLlL1imRWuIQS7oJYIIZcp3YpC/pub?gid=406574375&single=true&output=csv') 
 
